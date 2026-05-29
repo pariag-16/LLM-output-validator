@@ -1,0 +1,331 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+LLM Output Validator Dashboard
+</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo-section">
+
+<div class="logo-box">
+
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</div>
+
+<div>
+
+<h1>
+LLM Output Validator
+</h1>
+
+<p>
+Validate • Retry • Correct • Monitor
+</p>
+
+</div>
+
+</div>
+
+<div class="status-section">
+
+<span class="live-status">
+
+<span class="dot"></span>
+
+LIVE
+
+</span>
+
+<span class="version">
+v2.0
+</span>
+
+</div>
+
+</header>
+
+<main class="container">
+
+<!-- INPUT -->
+
+<section class="input-card">
+
+<h2>
+Generate Response
+</h2>
+
+<textarea
+id="promptInput"
+placeholder="Enter your prompt here..."
+></textarea>
+
+<button
+onclick="generateResponse()">
+
+Generate Response
+
+</button>
+
+</section>
+
+<!-- KPI CARDS -->
+
+<section class="kpi-grid">
+
+<div class="kpi-card">
+
+<h4>Total Failures</h4>
+
+<h2 id="failures">
+0
+</h2>
+
+</div>
+
+<div class="kpi-card">
+
+<h4>Total Corrections</h4>
+
+<h2 id="corrections">
+0
+</h2>
+
+</div>
+
+<div class="kpi-card">
+
+<h4>Success Rate</h4>
+
+<h2 id="successRate">
+0%
+</h2>
+
+</div>
+
+<div class="kpi-card">
+
+<h4>Tokens Used</h4>
+
+<h2 id="tokensUsed">
+0
+</h2>
+
+</div>
+
+<div class="kpi-card">
+
+<h4>Latency</h4>
+
+<h2 id="latency">
+0ms
+</h2>
+
+</div>
+
+</section>
+
+<!-- CHARTS -->
+
+<section class="chart-grid">
+
+<div class="card">
+
+<h3>
+System Metrics
+</h3>
+
+<canvas
+id="metricsChart">
+</canvas>
+
+</div>
+
+<div class="card">
+
+<h3>
+Performance
+</h3>
+
+<canvas
+id="performanceChart">
+</canvas>
+
+</div>
+
+</section>
+
+<!-- VALIDATED OUTPUT -->
+
+<section class="output-card">
+
+<div class="output-header">
+
+<h2>
+Validated Output
+</h2>
+
+<span class="success-badge">
+
+VALID
+
+</span>
+
+</div>
+
+<div class="meta-grid">
+
+<div>
+Attempts:
+<span id="attempts">
+-
+</span>
+</div>
+
+<div>
+Latency:
+<span id="responseLatency">
+-
+</span>
+</div>
+
+<div>
+Tokens:
+<span id="responseTokens">
+-
+</span>
+</div>
+
+<div>
+Schema:
+<span id="schemaName">
+product
+</span>
+</div>
+
+</div>
+
+<pre id="outputBox">
+
+Waiting for response...
+
+</pre>
+
+</section>
+
+<!-- SYSTEM HEALTH -->
+
+<section class="health-card">
+
+<h2>
+System Health
+</h2>
+
+<div class="health-grid">
+
+<div>
+🟢 Validation Engine
+</div>
+
+<div>
+🟢 Retry Engine
+</div>
+
+<div>
+🟢 Schema Registry
+</div>
+
+<div>
+🟢 Metrics Tracking
+</div>
+
+</div>
+
+</section>
+
+<!-- FAILURE LOGS -->
+
+<section class="logs-card">
+
+<h2>
+Recent Failure Logs
+</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>
+Prompt
+</th>
+
+<th>
+Error
+</th>
+
+<th>
+Status
+</th>
+
+</tr>
+
+</thead>
+
+<tbody id="logsTable">
+
+<tr>
+
+<td colspan="3">
+
+No logs yet
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+</main>
+
+<script
+src="https://cdn.jsdelivr.net/npm/chart.js">
+</script>
+
+<script
+src="script.js">
+</script>
+
+</body>
+
+</html>
+```
